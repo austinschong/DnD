@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Work+Sans&display=swap');
+
+#uniforms-0000-0001, #uniforms-0000-0002, #uniforms-0000-0004, #uniforms-0000-0005 {
+  font-family: 'Lato', sans-serif!important;
+}
+
+h3, h1, h2 {
+  font-family: 'Quicksand', sans-serif!important;
+  letter-spacing: 2px;
+  text-transform: uppercase!important;
+}
+
+h4, p {
+  font-family: 'Quicksand', sans-serif!important;
+  letter-spacing: 2px;
+  text-transform: uppercase !important;
+}
+
+p {
+  text-transform: none!important;
+}
+
+.welcome{
+  font-size: 22px;
+}
+
+.whtBtn {
+  background-color: #1a2626 !important;
+  color: #fff !important;
+}
+
+.segments{
+  padding-top: 50px;
+}
+
+#bodyid .create-new-btn{
+  border-radius: 0;
+  background-color: #1a2626;
+}
+
+
+.rbc-calendar {
+  min-height: 600px;
+}
+
+.rbc-date-cell a:hover {
+  color: #56BB99;
+}
+
+.rbc-event {
+  border: none;
+  font-size: 11px;
+  box-sizing: border-box;
+  box-shadow: none;
+  margin: 0;
+  margin-top: .8rem;
+  padding: 2px 5px;
+  background-color: #38955E !important;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.rbc-slot-selecting .rbc-event {
+  cursor: inherit;
+  pointer-events: none; }
+
+.rbc-event.rbc-selected {
+  background-color: rgb(0, 100, 45);
+}
+
+.rbc-event:focus {
+  background-color: rgb(0, 100, 45);
+}
+
+.rbc-day-bg:hover {
+  background: #c3e4d99e;
+  cursor: pointer;
+}
+
+.rbc-event:hover .rbc-event-course, .rbc-event:hover {
+  background-color: rgb(0, 100, 45) !important;
+}
+
+.rbc-event-course {
+  color: rgba(0,0,0,.87);
+  line-height: 1rem;
+  margin-top: -.75rem;
+  margin-left: .75rem;
+  position: absolute;
+  background-color: #005325 !important;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 85%;
+}
+
+.ui.vertical.segment.appointment-list:hover {
+  background: #f3f3f3 !important;
+}
+
+.form.ui.form.reminder-fields div.middle.aligned.content {
+  display: inline-flex !important;
+}
+
+.form.ui.form.reminder-fields div.disabled.required.field, .form.ui.form.reminder-fields div.disabled.required.field label, .form.ui.form.reminder-fields div.disabled.field, .form.ui.form.reminder-fields div.disabled.field label, .form.reminder-fields div.ui.disabled.grouped.fitted.fields.list div  {
+  opacity: 1 !important;
+}
+
+.reminder-modal {
+  min-width: 60rem;
+  padding: 1.5rem;
+}
+
+.helppage-background {
+  background: url('./images/HelpPage.png') repeat-y center center;
+  background-size: cover, contain;
+}
+
+.taro-background {
+  background: url('/images/loginPage.png') no-repeat center center;
+  background-size: cover, contain;
+  height: 1000px;
+}
+
+.grid-row {
+  margin-right: 30em;
+  margin-left: 30em;
+  min-width: 600px;
+  max-width: 600px;
+}
+
+.landing-background {
+  background: url('/images/landing.png') no-repeat center center;
+  background-size: cover, contain;
+  height: 1000px;
+  min-width: 1000px;
+}
+
+.signup-background {
+  background: url('/images/signin.png') no-repeat center center;
+  background-size: cover, contain;
+  height: 1000px;
+  min-width: 1000px;
+}
+
+.account-settings-bg {
+  background: url('/images/AccountSettings.png');
+  background-size: cover;
+  height: 1000px;
+}
+
+.main-content {
+  padding: 2rem 0 !important;
+}
+
+/* For landing page. */
+.landing {
+  background-color: white !important;
+}
+
+.landing_bottom_image {
+  background-color: white;
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  padding-top: 10px;
+  padding-right: 471px;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+}
+
+.landingPage {
+  color: black !important;
+}
+/* Join button for LandingPage */
+.JoinButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+}
+/* For landing page. */
