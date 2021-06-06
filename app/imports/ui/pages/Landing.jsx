@@ -40,24 +40,13 @@ class Landing extends React.Component {
                 <List as='h2' size='large'>
                   <br/><br/><br/>
                   <List.Item>
-                    <Icon name='user'/> Reduce No-Shows and Save time with Automation
+                    <Icon name='user'/> Get started on creating your D&D character and get playing!
                   </List.Item>
                   <br/>
                   <List.Item>
-                    <Icon name='edit'/> Set up appointment reminders that replace manual tasks
+                    <Icon name='edit'/> Customize and update your character as you play!
                   </List.Item>
                   <br/>
-                  <List.Item>
-                    <Icon name='stethoscope'/> View Upcoming and Old Appointments
-                  </List.Item>
-                  <br/>
-                  <List.Item>
-                    <Icon name='calendar'/> Update your personal calendar
-                  </List.Item>
-                  <br/>
-                  <List.Item>
-                    <Icon name='heartbeat'/> Join today and get started on taking care of you
-                  </List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column>
