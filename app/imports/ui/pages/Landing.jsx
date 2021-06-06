@@ -18,7 +18,7 @@ class Landing extends React.Component {
               <Grid.Column verticalalign='middle'>
                 <Reveal animated='move' instant>
                   <Reveal.Content visible>
-                    <Image size='small' fluid src="/public/images/image.png"/>
+                    <Image size='small' fluid src="image.png"/>
                   </Reveal.Content>
                   <Reveal.Content hidden verticalalign='middle'>
                     <br/>
