@@ -9,9 +9,9 @@ class Landing extends React.Component {
       <div className="landing-background">
         <Container className='landingPage' style={{
           backgroundColor: 'white' }}>
-          <Image fluid size='large' centered src="/images/logo.png"/>
+          <Image fluid size='medium' centered src="/images/logo.png"/>
           <Header className='landingPage' textAlign='center' as={'h1'} style={{
-            paddingTop: '10px', fontSize: '50px' }}>
+            paddingTop: '10px', fontSize: '30px' }}>
               Our appointment reminder software can be set up exactly how you need</Header>
           <Grid verticalalign='middle'>
             <Grid.Row columns={3}>
@@ -53,7 +53,7 @@ class Landing extends React.Component {
               <Grid.Column>
                 <Reveal animated='move right' instant>
                   <Reveal.Content visible>
-                    <Image fluid src='/images/mim.png'/>
+                    <Image fluid src='/images/Dice3.png'/>
                   </Reveal.Content>
                   <Reveal.Content hidden>
                     <br/>
@@ -61,7 +61,7 @@ class Landing extends React.Component {
                     <br/>
                     <br/>
                     <Header className='landingPage' textAlign='center' as={'h1'}>
-                        Manage your appointments from anywhere!
+                      Update your characters from anywhere!
                       <Divider hidden/>
                       <Button className='whtBtn' as={Link} to="/login" animated size="large">
                         <Button.Content visible>Log-In!</Button.Content>
@@ -76,7 +76,7 @@ class Landing extends React.Component {
             </Grid.Row>
           </Grid>
           <Header className='landingPage' textAlign='center' as={'h1'}>
-              Start making your life easier with HO&apos;OMANA&apos;O </Header>
+              Get started with C&P! </Header>
           <Image src='/images/icon.png' size='small' centered/>
           <Container className='landing_bottom_image'>
             <Segment basic floated='right' compact textAlign='center'>
