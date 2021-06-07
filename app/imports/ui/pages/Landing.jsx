@@ -9,6 +9,7 @@ class Landing extends React.Component {
       <div className="landing-background">
         <Container className='landingPage' style={{
           backgroundColor: 'white' }}>
+          <Image fluid size='large' centered src="/images/logo.png"/>
           <Header className='landingPage' textAlign='center' as={'h1'} style={{
             paddingTop: '10px', fontSize: '50px' }}>
               Our appointment reminder software can be set up exactly how you need</Header>
@@ -17,7 +18,7 @@ class Landing extends React.Component {
               <Grid.Column verticalalign='middle'>
                 <Reveal animated='move' instant>
                   <Reveal.Content visible>
-                    <Image size='small' fluid src="/images/image.png"/>
+                    <Image fluid src="/images/Dice4.png"/>
                   </Reveal.Content>
                   <Reveal.Content hidden verticalalign='middle'>
                     <br/>
