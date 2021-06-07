@@ -9,23 +9,23 @@ class Landing extends React.Component {
       <div className="landing-background">
         <Container className='landingPage' style={{
           backgroundColor: 'white' }}>
+          <Image fluid size='large' centered src="/images/logo.png"/>
           <Header className='landingPage' textAlign='center' as={'h1'} style={{
-            paddingTop: '10px', fontSize: '30px' }}>
-              Welcome to Create & Play! Our apllicaiton helps you set up and store your personal characters
-          easily and fast!</Header>
+            paddingTop: '10px', fontSize: '50px' }}>
+              Our appointment reminder software can be set up exactly how you need</Header>
           <Grid verticalalign='middle'>
             <Grid.Row columns={3}>
               <Grid.Column verticalalign='middle'>
                 <Reveal animated='move' instant>
                   <Reveal.Content visible>
-                    <Image size='small' fluid src="image.png"/>
+                    <Image fluid src="/images/Dice4.png"/>
                   </Reveal.Content>
                   <Reveal.Content hidden verticalalign='middle'>
                     <br/>
                     <br/>
                     <br/>
                     <Header className='landingPage' textAlign='center' as={'h1'}>
-                        Set up your character now!
+                        Create up your character now!
                       <Divider hidden/>
                       <Button className='whtBtn' as={Link} to="/signin" animated size="large">
                         <Button.Content visible>Sign-Up!</Button.Content>
@@ -61,7 +61,7 @@ class Landing extends React.Component {
                     <br/>
                     <br/>
                     <Header className='landingPage' textAlign='center' as={'h1'}>
-                        Manage your characters from anywhere!
+                        Manage your appointments from anywhere!
                       <Divider hidden/>
                       <Button className='whtBtn' as={Link} to="/login" animated size="large">
                         <Button.Content visible>Log-In!</Button.Content>
@@ -76,7 +76,7 @@ class Landing extends React.Component {
             </Grid.Row>
           </Grid>
           <Header className='landingPage' textAlign='center' as={'h1'}>
-              Start making your life easier with Create & Play </Header>
+              Start making your life easier with HO&apos;OMANA&apos;O </Header>
           <Image src='/images/icon.png' size='small' centered/>
           <Container className='landing_bottom_image'>
             <Segment basic floated='right' compact textAlign='center'>
