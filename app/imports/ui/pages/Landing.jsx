@@ -77,7 +77,7 @@ class Landing extends React.Component {
           </Grid>
           <Header className='landingPage' textAlign='center' as={'h1'}>
               Get started with C&P! </Header>
-          <Image src='/images/icon.png' size='small' centered/>
+          <Image src='/images/Mim.png' size='medium' centered/>
           <Container className='landing_bottom_image'>
             <Segment basic floated='right' compact textAlign='center'>
               <Button className='whtBtn' as={Link} to="/signin" animated size="large">
