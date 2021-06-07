@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Container, Image } from 'semantic-ui-react';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Stuff table. S. */
 class DescriptionStats extends React.Component {
   render() {
     return (
