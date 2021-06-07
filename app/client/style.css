@@ -55,7 +55,7 @@ p {
 }
 
 .landing_bottom_image {
-  background-color: white;
+  background-image: url("/images/Mim.png");
   background-size: cover;
   width: 100%;
   height: 250px;
