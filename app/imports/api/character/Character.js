@@ -14,7 +14,6 @@ class CharactersCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      image: URL,
       race: {
         type: String,
         allowedValues: ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'],
@@ -57,7 +56,7 @@ class CharactersCollection {
 }
 
 /**
- * The singleton instance of the CharactersCollection.
- * @type {CharactersCollection}
+ * The singleton instance of the StuffsCollection.
+ * @type {StuffsCollection}
  */
 export const Characters = new CharactersCollection();
