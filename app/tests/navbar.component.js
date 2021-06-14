@@ -36,6 +36,21 @@ class NavBar {
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
   }
+
+  /** Click on new character tab. */
+  async gotoNewCharacterPage(testController) {
+    await testController.click('#new-character-page');
+  }
+
+  /** Click on edit character tab. */
+  async gotoEditCharacterPage(testController) {
+    await testController.click('#edit-page');
+  }
+
+  /** Click on view characters tab. */
+  async gotoCharacterPage(testController) {
+    await testController.click('#chars');
+  }
 }
 
 export const navBar = new NavBar();
