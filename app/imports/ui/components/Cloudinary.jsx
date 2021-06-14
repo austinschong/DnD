@@ -6,13 +6,11 @@ import { cloudinary } from 'cloudinary-react';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StuffItem extends React.Component {
-
-
-render() {
+  render() {
     return (
-        <Container>
-          <button id="upload_widget" className="cloudinary-button" onClick={cloudinary}>Upload files</button>
-        </Container>
+      <Container>
+        <button id="upload_widget" className="cloudinary-button" onClick={cloudinary}>Upload files</button>
+      </Container>
     );
   }
 }

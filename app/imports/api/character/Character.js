@@ -27,7 +27,6 @@ class CharactersCollection {
         defaultValue: 'Barbarian',
       },
       subclass: String,
-      quantity: Number,
       strength: Number,
       dexterity: Number,
       constitution: Number,
