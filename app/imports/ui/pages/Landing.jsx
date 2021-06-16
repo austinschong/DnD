@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class Landing extends React.Component {
   render() {
     return (
-      <div className="landing-background">
+      <div id="landing-page" className="landing-background">
         <Container className='landingPage' style={{
           backgroundColor: 'white' }}>
           <Image fluid size='medium' centered src="/images/logo.png"/>
