@@ -13,7 +13,8 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import Characters from '../pages/Characters';
+import CharacterMenu from '../pages/CharacterMenu';
+import CharacterPage from '../pages/CharacterPage';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -30,7 +31,8 @@ class App extends React.Component {
             <ProtectedRoute path="/edit" component={EditChar}/>
             <ProtectedRoute path="/createchar" component={CreateChar}/>
             <ProtectedRoute path="/edit/:_id" component={EditChar}/>
-            <ProtectedRoute path="/characters" component={Characters}/>
+            <ProtectedRoute path="/charmenu" component={CharacterMenu}/>
+            <ProtectedRoute path="/charpage" component={CharacterPage}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
