@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 /** Renders a single row in the List Stuff table. S. */
 class DescriptionStats extends React.Component {
   render() {
-    const CharStatsInfo = this.props.charstats;
+    const CharStatsInfo = this.props.character;
     return (
       <div className="Character Sheet">
         <Container>
@@ -23,6 +23,8 @@ class DescriptionStats extends React.Component {
                   <Grid.Column width={6}>
                     <Card>
                       <Card.Content>
+                        <Card.Meta>NAME:</Card.Meta>
+                        <Card.Header>{CharStatsInfo.name}</Card.Header>
                         <Card.Meta>RACE:</Card.Meta>
                         <Card.Header>{CharStatsInfo.race}</Card.Header>
                         <Card.Meta>LEVEL:</Card.Meta>
@@ -214,7 +216,7 @@ class DescriptionStats extends React.Component {
 
 // Require a document to be passed to this component.
 DescriptionStats.propTypes = {
-  charstats: PropTypes.object.isRequired,
+  character: PropTypes.object.isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
