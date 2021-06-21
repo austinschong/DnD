@@ -1,10 +1,10 @@
 import React from 'react';
-import { Accordion, Button, Card, Image, Icon, List } from 'semantic-ui-react';
+import { Accordion, Card, Image, Icon, List } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+// import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class DescriptionCards extends React.Component {
+class DescriptionCardsAdmin extends React.Component {
   state = { activeIndex: 0 }
 
   handleClick = (e, titleProps) => {
@@ -37,7 +37,7 @@ class DescriptionCards extends React.Component {
               onClick={this.handleClick}
             >
               <Icon name='dropdown'/>
-              Quick View
+              More
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
               <List>
@@ -63,12 +63,7 @@ class DescriptionCards extends React.Component {
           </Accordion>
         </Card.Content>
         <Card.Content extra>
-          <Button>
-            <Link to={`/charpage/${CharacterInfo._id}`}>View</Link>
-          </Button>
-          <Button>
-            <Link to={`/edit/${CharacterInfo._id}`}>Edit</Link>
-          </Button>
+          <Card.Meta>Owner: {CharacterInfo.owner}</Card.Meta>
         </Card.Content>
       </Card>
     );
@@ -76,9 +71,9 @@ class DescriptionCards extends React.Component {
 }
 
 // Require a document to be passed to this component.
-DescriptionCards.propTypes = {
+DescriptionCardsAdmin.propTypes = {
   character: PropTypes.object.isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(DescriptionCards);
+export default DescriptionCardsAdmin;
