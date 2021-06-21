@@ -70,7 +70,7 @@ Lucy Rock:
 <li>Landing Page</li>
 <li>Add Character Page</li>
 <li>Edit Character Page (NEW)</li>
-<ul>
+</ul>
 <h3>DATED: 20 June, 2021</h3>
 <h3>NEW Completed Sections:</h3>
 <li>Description Stats Component</li>
