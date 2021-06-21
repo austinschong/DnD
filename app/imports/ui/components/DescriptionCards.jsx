@@ -20,7 +20,7 @@ class DescriptionCards extends React.Component {
     const { activeIndex } = this.state;
     return (
       <Card>
-        <Image src={CharacterInfo.image}/>
+        <Image src={CharacterInfo.image} className="card-icons"/>
         <Card.Content>
           <Card.Header>{CharacterInfo.name}</Card.Header>
           <Card.Meta>Race: {CharacterInfo.race}</Card.Meta>
