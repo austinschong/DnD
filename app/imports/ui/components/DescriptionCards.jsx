@@ -25,7 +25,7 @@ class DescriptionCards extends React.Component {
           <Card.Header>{CharacterInfo.name}</Card.Header>
           <Card.Meta>Race: {CharacterInfo.race}</Card.Meta>
           <Card.Meta>Level: {CharacterInfo.level}</Card.Meta>
-          <Card.Meta>Class: {CharacterInfo.class}</Card.Meta>
+          <Card.Meta>Class: {CharacterInfo.charclass}</Card.Meta>
           <Card.Meta>Subclass: {CharacterInfo.subclass}</Card.Meta>
           <Card.Description>{CharacterInfo.notes}</Card.Description>
         </Card.Content>

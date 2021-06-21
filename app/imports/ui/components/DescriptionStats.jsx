@@ -28,7 +28,7 @@ class DescriptionStats extends React.Component {
                         <Card.Meta>LEVEL:</Card.Meta>
                         <Card.Header>{CharStatsInfo.level}</Card.Header>
                         <Card.Meta>CLASS:</Card.Meta>
-                        <Card.Header>{CharStatsInfo.class}</Card.Header>
+                        <Card.Header>{CharStatsInfo.charclass}</Card.Header>
                         <Card.Meta>SUBCLASS:</Card.Meta>
                         <Card.Header>{CharStatsInfo.subclass}</Card.Header>
                       </Card.Content>
