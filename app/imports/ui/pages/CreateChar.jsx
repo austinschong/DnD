@@ -1,30 +1,25 @@
 import React from 'react';
-import { Grid, Loader, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { Loader, Segment, Header } from 'semantic-ui-react';
+import { AutoForm, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
+import { withTracker } from 'meteor/react-meteor-data';
+// import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+// import SimpleSchema from 'simpl-schema';
 import PropTypes from 'prop-types';
 // import { Stuffs } from '../../api/stuff/Stuff';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { Characters } from '../../api/character/Character';
+import DescriptionStats from '../components/DescriptionStats';
 
-// Create a schema to specify the structure of the data to appear in the form.
-const formSchema = new SimpleSchema({
-  name: String,
-  quantity: Number,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
-});
+// const bridge = new SimpleSchema2Bridge(formSchema);
 
-const bridge = new SimpleSchema2Bridge(formSchema);
-
-/** Renders the Page for adding a document. */
 class CreateChar extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { email: '', password: '', error: '', redirectToReferer: false };
+  }
 
   // On submit, insert the data.
   submit(data) {
@@ -41,41 +36,42 @@ class CreateChar extends React.Component {
     });
   }
 
-  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
-    const { from } = this.props.location.state || { from: { pathname: /createchar/ } };
-    // if correct authentication, redirect to from: page instead of signup screen
-    if (this.state.redirectToReferer) {
-      return <Redirect to={from}/>;
-    } return (
-      <Grid container centered>
-        <Grid.Column>
-          <Header as="h2" textAlign="center">Character Creation</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-            <Segment>
-              <TextField name='name'/>
-              <NumField name='quantity' decimal={false}/>
-              <SelectField name='condition'/>
-              <SubmitField value='Submit'/>
-              <ErrorsField/>
-            </Segment>
-          </AutoForm>
-        </Grid.Column>
-      </Grid>
+    return (
+      <div id="Characters-page">
+        <Header as="h2" textAlign="center">Characters</Header>
+        <AutoForm schema={Characters} onSubmit={data => this.submit(data)} model={this.props.doc}>
+          <Segment.Group centered>{this.props.characters.map((characters, index) => <DescriptionStats
+            key={index}
+            character={characters}/>)}
+          </Segment.Group>
+          <SubmitField className='editProfileButton' value='Submit'/>
+        </AutoForm>
+
+      </div>
     );
   }
 }
+
 CreateChar.propTypes = {
   doc: PropTypes.object,
-  model: PropTypes.object,
+  characters: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
-  location: PropTypes.object,
-  profiles: PropTypes.array.isRequired,
 };
 
-export default CreateChar;
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe(Characters.userPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready();
+  // Get the Stuff documents
+  const characters = Characters.collection.find({}).fetch();
+  return {
+    characters,
+    ready,
+  };
+})(CreateChar);
