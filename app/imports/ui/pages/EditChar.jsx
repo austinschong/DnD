@@ -16,9 +16,11 @@ class EditChar extends React.Component {
   // On successful submit, insert the data.
   submit(data) {
     const owner = Meteor.user().username;
-    const { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence, charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, _id } = data;
+    const { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
+      charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, _id } = data;
     Characters.collection.update(_id, { $set: { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
-        charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, owner } }, (error) => (error ?
+      charisma, wisdom, head, neck, back, arms, chest, hands,
+      belt, ring1, ring2, mainhand, offhand, notes, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -30,11 +32,12 @@ class EditChar extends React.Component {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
+    console.log(this.props.character);
     return (
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Edit Character</Header>
-          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
+          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.character}>
             <Segment>
               <div className="Character Sheet">
                 <Container>
@@ -51,13 +54,9 @@ class EditChar extends React.Component {
                           <Grid.Column width={6}>
                             <Card>
                               <Card.Content>
-                                <Card.Meta>RACE:</Card.Meta>
                                 <Card.Header><SelectField name='race' /></Card.Header>
-                                <Card.Meta>LEVEL:</Card.Meta>
                                 <Card.Header><NumField name='level' decimal={false} /></Card.Header>
-                                <Card.Meta>CLASS:</Card.Meta>
                                 <Card.Header><SelectField name='charclass' /></Card.Header>
-                                <Card.Meta>SUBCLASS:</Card.Meta>
                                 <Card.Header><TextField name='subclass' /></Card.Header>
                               </Card.Content>
                             </Card>
@@ -66,7 +65,6 @@ class EditChar extends React.Component {
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Meta>STR.</Card.Meta>
                                       <Card.Header><NumField name='strength' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
@@ -74,7 +72,6 @@ class EditChar extends React.Component {
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Meta>DEX.</Card.Meta>
                                       <Card.Header><NumField name='dexterity' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
@@ -84,7 +81,6 @@ class EditChar extends React.Component {
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Meta>CON.</Card.Meta>
                                       <Card.Header><NumField name='constitution' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
@@ -92,7 +88,6 @@ class EditChar extends React.Component {
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Meta>INT.</Card.Meta>
                                       <Card.Header><NumField name='intelligence' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
@@ -102,7 +97,6 @@ class EditChar extends React.Component {
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Meta>CHA.</Card.Meta>
                                       <Card.Header><NumField name='charisma' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
@@ -110,7 +104,6 @@ class EditChar extends React.Component {
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Meta>WIS.</Card.Meta>
                                       <Card.Header><NumField name='wisdom' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
@@ -119,20 +112,17 @@ class EditChar extends React.Component {
                             </Grid>
                             <Card>
                               <Card.Content>
-                                <Card.Meta>MAIN ATTACK:</Card.Meta>
-                                <Card.Header><NumField name='mainhand' decimal={true} /></Card.Header>
+                                <Card.Header><TextField name='mainhand'/></Card.Header>
                               </Card.Content>
                             </Card>
                             <Card>
                               <Card.Content>
-                                <Card.Meta>OFF HAND ATTACK:</Card.Meta>
-                                <Card.Header><NumField name='offhand' decimal={true} /></Card.Header>
+                                <Card.Header><TextField name='offhand'/></Card.Header>
                               </Card.Content>
                             </Card>
                             <Card>
                               <Card.Content>
-                                <Card.Meta>NOTES:</Card.Meta>
-                                <Card.Description><NumField name='notes' decimal={false} /></Card.Description>
+                                <Card.Description><TextField name='notes' decimal={false} /></Card.Description>
                               </Card.Content>
                             </Card>
                           </Grid.Column>
@@ -149,7 +139,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card centered>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>HEAD</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='head' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -159,7 +148,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>NECK</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='neck' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -167,7 +155,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>BACK</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='back' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -177,7 +164,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>ARMS</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='arms' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -185,7 +171,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>CHEST</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='chest' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -195,7 +180,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>HANDS</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='hands' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -203,7 +187,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>BELT</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='belt' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -213,7 +196,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>RING 1</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='ring1' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -221,7 +203,6 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Meta textAlign='center'>RING 2</Card.Meta>
                                         <Card.Header textAlign='center'><TextField name='ring2' /></Card.Header>
                                       </Card.Content>
                                     </Card>
@@ -238,8 +219,8 @@ class EditChar extends React.Component {
                 </Container>
               </div>
             </Segment>
-            <SubmitField value='Submit'/>
             <ErrorsField/>
+            <SubmitField value='Submit'/>
           </AutoForm>
         </Grid.Column>
       </Grid>
@@ -249,7 +230,7 @@ class EditChar extends React.Component {
 
 // Require the presence of a Character document in the props object. Uniforms adds 'model' to the props, which we use.
 EditChar.propTypes = {
-  doc: PropTypes.object,
+  character: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
@@ -260,12 +241,9 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Character documents.
   const subscription = Meteor.subscribe(Characters.userPublicationName);
-  // Determine if the subscription is ready
-  const ready = subscription.ready();
   // Get the document
-  const doc = Characters.collection.findOne(documentId);
   return {
-    doc,
-    ready,
+    character: Characters.collection.findOne(documentId),
+    ready: subscription.ready(),
   };
 })(EditChar);
