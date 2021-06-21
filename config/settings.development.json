@@ -12,7 +12,7 @@
   ],
 
   "defaultCharacters": [
-    { "name": "The Derp Knight", "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloudcom%2Fda-derp-knight&psig=AOvVaw2Tlbpzo5yO5IHruCXcAhiq&ust1623733465939000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJi299uslvECFQAAAAAdAAAAABAD", "race": "Human",
+    { "name": "The Derp Knight", "image": "https://i.imgur.com/ViQRRDe.jpg", "race": "Human",
     "level": 1,
     "class": "Fighter",
     "subclass": "Battle Master",

@@ -63,7 +63,7 @@ class Landing extends React.Component {
                     <Header className='landingPage' textAlign='center' as={'h1'}>
                       Update your characters from anywhere!
                       <Divider hidden/>
-                      <Button className='whtBtn' as={Link} to="/login" animated size="large">
+                      <Button className='whtBtn' as={Link} to="/signin" animated size="large">
                         <Button.Content visible>Log-In!</Button.Content>
                         <Button.Content hidden>
                           <Icon className='iWht' name='arrow right'/>
