@@ -229,7 +229,7 @@ class EditChar extends React.Component {
 
 // Require the presence of a Character document in the props object. Uniforms adds 'model' to the props, which we use.
 EditChar.propTypes = {
-  character: PropTypes.object,
+  character: PropTypes.object.isRequired,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };

@@ -30,7 +30,7 @@ Meteor.publish(ImageData.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Items.userPublicationName, function () {``
+Meteor.publish(Items.userPublicationName, function () {
   if (this.userId) {
     return Items.collection.find();
   }
