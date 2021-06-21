@@ -21,7 +21,7 @@ class CharactersCollection {
         defaultValue: 'Human',
       },
       level: Number,
-      class: {
+      charclass: {
         type: String,
         allowedValues: ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'],
         defaultValue: 'Barbarian',

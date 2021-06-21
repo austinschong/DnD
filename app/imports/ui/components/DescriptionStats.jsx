@@ -23,14 +23,12 @@ class DescriptionStats extends React.Component {
                   <Grid.Column width={6}>
                     <Card>
                       <Card.Content>
-                        <Card.Meta>NAME:</Card.Meta>
-                        <Card.Header>{CharStatsInfo.name}</Card.Header>
                         <Card.Meta>RACE:</Card.Meta>
                         <Card.Header>{CharStatsInfo.race}</Card.Header>
                         <Card.Meta>LEVEL:</Card.Meta>
                         <Card.Header>{CharStatsInfo.level}</Card.Header>
                         <Card.Meta>CLASS:</Card.Meta>
-                        <Card.Header>{CharStatsInfo.class}</Card.Header>
+                        <Card.Header>{CharStatsInfo.charclass}</Card.Header>
                         <Card.Meta>SUBCLASS:</Card.Meta>
                         <Card.Header>{CharStatsInfo.subclass}</Card.Header>
                       </Card.Content>
