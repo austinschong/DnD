@@ -37,7 +37,7 @@ class DescriptionCards extends React.Component {
               onClick={this.handleClick}
             >
               <Icon name='dropdown'/>
-              More
+              Quick View
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
               <List>
@@ -65,6 +65,9 @@ class DescriptionCards extends React.Component {
         <Card.Content extra>
           <Button>
             <Link to={`/charpage/${CharacterInfo._id}`}>View</Link>
+          </Button>
+          <Button>
+            <Link to={`/edit/${CharacterInfo._id}`}>Edit</Link>
           </Button>
         </Card.Content>
       </Card>
