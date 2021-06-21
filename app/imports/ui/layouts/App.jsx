@@ -32,7 +32,7 @@ class App extends React.Component {
             <ProtectedRoute path="/createchar" component={CreateChar}/>
             <ProtectedRoute path="/edit/:_id" component={EditChar}/>
             <ProtectedRoute path="/charmenu" component={CharacterMenu}/>
-            <ProtectedRoute path="/charpage" component={CharacterPage}/>
+            <ProtectedRoute path="/charpage/:_id" component={CharacterPage}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>

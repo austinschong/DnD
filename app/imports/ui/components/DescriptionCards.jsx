@@ -64,7 +64,7 @@ class DescriptionCards extends React.Component {
         </Card.Content>
         <Card.Content extra>
           <Button>
-            <Link to={`/edit/${CharacterInfo._id}`}>Edit</Link>
+            <Link to={`/charpage/${CharacterInfo._id}`}>View</Link>
           </Button>
         </Card.Content>
       </Card>
