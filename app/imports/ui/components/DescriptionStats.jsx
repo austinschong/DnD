@@ -23,8 +23,6 @@ class DescriptionStats extends React.Component {
                   <Grid.Column width={6}>
                     <Card>
                       <Card.Content>
-                        <Card.Meta>NAME:</Card.Meta>
-                        <Card.Header>{CharStatsInfo.name}</Card.Header>
                         <Card.Meta>RACE:</Card.Meta>
                         <Card.Header>{CharStatsInfo.race}</Card.Header>
                         <Card.Meta>LEVEL:</Card.Meta>
@@ -101,12 +99,6 @@ class DescriptionStats extends React.Component {
                       <Card.Content>
                         <Card.Meta>OFF HAND ATTACK:</Card.Meta>
                         <Card.Header>{CharStatsInfo.offhand}</Card.Header>
-                      </Card.Content>
-                    </Card>
-                    <Card>
-                      <Card.Content>
-                        <Card.Meta>NOTES:</Card.Meta>
-                        <Card.Description>{CharStatsInfo.notes}</Card.Description>
                       </Card.Content>
                     </Card>
                   </Grid.Column>
@@ -203,6 +195,12 @@ class DescriptionStats extends React.Component {
                         </Grid.Row>
                       </Grid>
                     </Segment>
+                    <Card fluid>
+                      <Card.Content>
+                        <Card.Meta>NOTES:</Card.Meta>
+                        <Card.Description>{CharStatsInfo.notes}</Card.Description>
+                      </Card.Content>
+                    </Card>
                   </Grid.Column>
                 </Grid>
               </Grid.Column>
