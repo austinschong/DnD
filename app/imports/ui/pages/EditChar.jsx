@@ -15,9 +15,10 @@ class EditChar extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence, charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, owner, _id } = data;
-    // eslint-disable-next-line max-len
-    Characters.collection.update(_id, { $set: { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence, charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, owner } }, (error) => (error ?
+    const owner = Meteor.user().username;
+    const { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence, charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, _id } = data;
+    Characters.collection.update(_id, { $set: { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
+        charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -232,6 +233,7 @@ class EditChar extends React.Component {
                         </Grid>
                       </Grid.Column>
                     </Grid>
+                    <HiddenField name='owner' />
                   </Segment>
                 </Container>
               </div>
