@@ -15,9 +15,8 @@ class EditChar extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const owner = Meteor.user().username;
     const { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
-      charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, _id } = data;
+      charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, owner, _id } = data;
     Characters.collection.update(_id, { $set: { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
       charisma, wisdom, head, neck, back, arms, chest, hands,
       belt, ring1, ring2, mainhand, offhand, notes, owner } }, (error) => (error ?
@@ -214,11 +213,11 @@ class EditChar extends React.Component {
                         </Grid>
                       </Grid.Column>
                     </Grid>
-                    <HiddenField name='owner' />
                   </Segment>
                 </Container>
               </div>
             </Segment>
+            <HiddenField name='owner' value={Meteor.user().username} />
             <ErrorsField/>
             <SubmitField value='Submit'/>
           </AutoForm>
@@ -241,9 +240,9 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Character documents.
   const subscription = Meteor.subscribe(Characters.userPublicationName);
-  // Get the document
+
   return {
-    character: Characters.collection.findOne(documentId),
+    character: Characters.collection.findOne(documentId), // Get the document
     ready: subscription.ready(),
   };
 })(EditChar);
