@@ -12,7 +12,7 @@ class NavBar extends React.Component {
     const menuStyle = { marginBottom: '10px' };
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/">
+        <Menu.Item id='homepage-button' as={NavLink} activeClassName="" exact to="/">
           <Header inverted as='h1'>DnD Character Creation</Header>
         </Menu.Item>
         {this.props.currentUser ? (
