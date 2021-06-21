@@ -6,7 +6,7 @@ import { Tracker } from 'meteor/tracker';
 class ItemsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'Bids';
+    this.name = 'Items';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
