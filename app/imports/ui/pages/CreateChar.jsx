@@ -25,7 +25,7 @@ class CreateChar extends React.Component {
   submit(data) {
     const { name, image, race, level, subclass, strength, dexterity, constitution, intelligence, charisma,
       wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, _id } = data;
-    Characters.update(_id, { $set: { name, image, race, level, subclass, strength, dexterity, constitution, intelligence, charisma,
+    Characters.collection.update(_id, { $set: { name, image, race, level, subclass, strength, dexterity, constitution, intelligence, charisma,
       wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes } },
     (error) => {
       if (error) {
