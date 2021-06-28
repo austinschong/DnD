@@ -118,31 +118,28 @@ Lucy Rock:
 <li>Admin Page</li>
 <li>Graphical and User Interface Edits</li>
 </ul>
-<h3>Pending Sections:</h3>
-<ul>
-<li>Dice Roll Function add-on</li>
-</ul>
+<h3>Pending Sections:</h3>NONE
 <h3>Workload Division:</h3>
 Austin Chong:
 <ul>
 <li>Sign In/Sign Up/Sign Out Page</li>
 <li>Landing</li>
 <li>TestCafe Development (Developed new tests for new components)</li>
-<li>Dice Roll (Still working on it)</li>
+<li>Dice Roll (Could not implement due to time constraints and development issues)</li>
 </ul>
 Rainier Javillo:
 <ul>
 <li>Character Page</li>
-<li>Character List Page (Editing viewing interface)</li>
+<li>Character List Page</li>
 <li>Description Stats Component</li>
-<li>Admin Page (NEW)</li>
+<li>Admin Page</li>
 </ul>
 Daniel Kim:
 <ul>
 <li>Character Database</li>
 <li>Character List Page</li>
 <li>Descriptions Stats Page</li>
-<li>Edit Character Page (normal and admin version))</li>
+<li>Edit Character Page (normal and admin version)</li>
 </ul>
 Lucy Rock:
 <ul>
