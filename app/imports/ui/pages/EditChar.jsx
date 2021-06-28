@@ -43,7 +43,6 @@ class EditChar extends React.Component {
                   <Segment>
                     <Grid celled='internally'>
                       <Grid.Column width={4}>
-                        <Segment>DICE ROLL FUNCTION</Segment>
                         <Card fluid>
                           <AutoField name='image' />
                         </Card>
