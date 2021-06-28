@@ -12,7 +12,9 @@ class Landing extends React.Component {
           <Image size='medium' centered src="/images/logo.png"/>
           <Header className='landingPage' textAlign='center' as={'h1'} style={{
             paddingTop: '10px', fontSize: '30px' }}>
-              Our appointment reminder software can be set up exactly how you need</Header>
+              Use our easy D&D character sheet to quickly build a character.
+              So you can spend less time planning, and more time playing!
+          </Header>
           <Grid verticalalign='middle'>
             <Grid.Row columns={3}>
               <Grid.Column verticalalign='middle'>
