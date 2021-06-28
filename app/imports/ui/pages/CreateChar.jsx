@@ -3,7 +3,6 @@ import { Grid, Loader, Header, Segment, Container, Card } from 'semantic-ui-reac
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Characters } from '../../api/character/Character';
@@ -14,14 +13,20 @@ const bridge = new SimpleSchema2Bridge(Characters.schema);
 class AddChar extends React.Component {
 
   // On successful submit, insert the data.
-  submit(data) {
-    const { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
-      charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, owner, _id } = data;
-    Characters.collection.insert(_id, { $set: { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
-      charisma, wisdom, head, neck, back, arms, chest, hands,
-      belt, ring1, ring2, mainhand, offhand, notes, owner } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+  submit(data, formRef) {
+    const { image, race, level, charclass, subclass, strength, dexterity, constitution,
+      intelligence, charisma, wisdom, mainhand, offhand, notes, name, head, neck, back, arms, chest, hands, belt, ring1,
+      ring2, owner } = data;
+    Characters.collection.insert({ image, race, level, charclass, subclass, strength, dexterity, constitution,
+      intelligence, charisma, wisdom, mainhand, offhand, notes, name, head, neck, back, arms, chest, hands, belt, ring1,
+      ring2, owner }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Item added successfully', 'success');
+        formRef.reset();
+      }
+    });
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
@@ -226,22 +231,5 @@ class AddChar extends React.Component {
   }
 }
 
-// Require the presence of a Character document in the props object. Uniforms adds 'model' to the props, which we use.
-AddChar.propTypes = {
-  character: PropTypes.object.isRequired,
-  model: PropTypes.object,
-  ready: PropTypes.bool.isRequired,
-};
-
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-export default withTracker(({ match }) => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const documentId = match.params._id;
-  // Get access to Character documents.
-  const subscription = Meteor.subscribe(Characters.userPublicationName);
-
-  return {
-    character: Characters.collection.findOne(documentId), // Get the document
-    ready: subscription.ready(),
-  };
-})(AddChar);
+export default AddChar;

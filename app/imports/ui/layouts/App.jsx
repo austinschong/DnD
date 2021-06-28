@@ -29,7 +29,6 @@ class App extends React.Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <ProtectedRoute path="/edit" component={EditChar}/>
             <ProtectedRoute path="/createchar" component={CreateChar}/>
             <ProtectedRoute path="/edit/:_id" component={EditChar}/>
             <ProtectedRoute path="/charmenu" component={CharacterMenu}/>
