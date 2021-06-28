@@ -158,7 +158,7 @@ Installing the program:
   <li>Run the command “meteor npm run start” and the application will run at this URL “http://localhost:3000/”, which you can click on in the terminal to open.</li>
 </ol>
 Closing thoughts:<br>
-As a group, we feel like our application has definitely come a long way since Week 1 of the course. There were many ideas that we conceived, which most of them were implemented. There were a few things towards the end that we were not able to fix completely but from our end user experiences, this application is great considering the short amount of time we had to code everything. We were all pretty impressed with how well our application turned out in the end, however, we do wish we had more time to get it closer to perfection.
+As a group, we feel like our application has definitely come a long way since Week 1 of the course. There were many ideas that we conceived, which most of them were implemented. There were a few things towards the end that we were not able to fix completely but from our end user experiences, this application is great considering the short amount of time we had to code everything. We were all pretty impressed with how well our application turned out in the end, however, we do wish we had more time to get it closer to perfection.<br>
 LINK TO REPOSITORY: https://github.com/austinschong/DnD#readme<br>
 LINK TO RELEASE: https://github.com/austinschong/DnD/releases<br>
 LINK TO WIKI: https://github.com/austinschong/DnD/wiki<br>
