@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment, Container, Card } from 'semantic-ui-react';
 import swal from 'sweetalert';
-import { AutoField, AutoForm, ErrorsField, SubmitField } from 'uniforms-semantic';
+import { AutoField, AutoForm, ErrorsField, HiddenField, SubmitField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -217,7 +217,7 @@ class EditChar extends React.Component {
                 </Container>
               </div>
             </Segment>
-            <AutoField name='owner' />
+            <HiddenField name='owner' />
             <ErrorsField/>
             <SubmitField value='Submit'/>
           </AutoForm>
