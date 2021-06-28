@@ -16,7 +16,7 @@ class CharactersCollection {
       image: String,
       race: {
         type: String,
-        allowedValues: ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'],
+        allowedValues: ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Drow', 'Tiefling'],
         defaultValue: 'Human',
       },
       level: Number,
