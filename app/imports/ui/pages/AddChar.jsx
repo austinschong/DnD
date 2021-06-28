@@ -1,9 +1,8 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment, Container, Card } from 'semantic-ui-react';
+import { Grid, Header, Segment, Container, Card } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
-import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Characters } from '../../api/character/Character';
 
@@ -217,7 +216,7 @@ class AddChar extends React.Component {
                 </Container>
               </div>
             </Segment>
-            <HiddenField name='owner' />
+            <HiddenField name='owner' value={Meteor.user().username} />
             <ErrorsField/>
             <SubmitField value='Submit'/>
           </AutoForm>
