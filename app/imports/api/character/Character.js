@@ -13,7 +13,6 @@ class CharactersCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      name: String,
       image: String,
       race: {
         type: String,
@@ -33,6 +32,10 @@ class CharactersCollection {
       intelligence: Number,
       charisma: Number,
       wisdom: Number,
+      mainhand: String,
+      offhand: String,
+      notes: String,
+      name: String,
       head: String,
       neck: String,
       back: String,
@@ -42,9 +45,6 @@ class CharactersCollection {
       belt: String,
       ring1: String,
       ring2: String,
-      mainhand: String,
-      offhand: String,
-      notes: String,
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment, Container, Card } from 'semantic-ui-react';
 import swal from 'sweetalert';
-import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoField, AutoForm, ErrorsField, SubmitField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -15,11 +15,11 @@ class EditChar extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
-      charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, owner, _id } = data;
-    Characters.collection.update(_id, { $set: { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
-      charisma, wisdom, head, neck, back, arms, chest, hands,
-      belt, ring1, ring2, mainhand, offhand, notes, owner } }, (error) => (error ?
+    const { image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
+      charisma, wisdom, mainhand, offhand, notes, name, head, neck, back, arms, chest, hands, belt, ring1, ring2, owner, _id } = data;
+    Characters.collection.update(_id, { $set: { image, race, level, charclass, subclass, strength, dexterity, constitution,
+      intelligence, charisma, wisdom, mainhand, offhand, notes, name, head, neck, back, arms, chest, hands, belt, ring1,
+      ring2, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -31,12 +31,12 @@ class EditChar extends React.Component {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
-    console.log(this.props.character);
+    console.log(this.props.doc);
     return (
       <Grid id='edit-character-page' container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Edit Character</Header>
-          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.character}>
+          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <div className="Character Sheet">
                 <Container>
@@ -45,7 +45,7 @@ class EditChar extends React.Component {
                       <Grid.Column width={5}>
                         <Segment>DICE ROLL FUNCTION</Segment>
                         <Card fluid>
-                          <TextField name='image'/>
+                          <AutoField name='image' />
                         </Card>
                       </Grid.Column>
                       <Grid.Column width={11}>
@@ -53,10 +53,10 @@ class EditChar extends React.Component {
                           <Grid.Column width={6}>
                             <Card>
                               <Card.Content>
-                                <Card.Header><SelectField name='race' /></Card.Header>
-                                <Card.Header><NumField name='level' decimal={false} /></Card.Header>
-                                <Card.Header><SelectField name='charclass' /></Card.Header>
-                                <Card.Header><TextField name='subclass' /></Card.Header>
+                                <Card.Header><AutoField name='race' /></Card.Header>
+                                <Card.Header><AutoField name='level' decimal={false} /></Card.Header>
+                                <Card.Header><AutoField name='charclass' /></Card.Header>
+                                <Card.Header><AutoField name='subclass' /></Card.Header>
                               </Card.Content>
                             </Card>
                             <Grid>
@@ -64,30 +64,14 @@ class EditChar extends React.Component {
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Header><NumField name='strength' decimal={false} /></Card.Header>
+                                      <Card.Header><AutoField name='strength' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
                                 </Grid.Column>
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Header><NumField name='dexterity' decimal={false} /></Card.Header>
-                                    </Card.Content>
-                                  </Card>
-                                </Grid.Column>
-                              </Grid.Row>
-                              <Grid.Row columns={2}>
-                                <Grid.Column>
-                                  <Card>
-                                    <Card.Content>
-                                      <Card.Header><NumField name='constitution' decimal={false} /></Card.Header>
-                                    </Card.Content>
-                                  </Card>
-                                </Grid.Column>
-                                <Grid.Column>
-                                  <Card>
-                                    <Card.Content>
-                                      <Card.Header><NumField name='intelligence' decimal={false} /></Card.Header>
+                                      <Card.Header><AutoField name='dexterity' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
                                 </Grid.Column>
@@ -96,14 +80,30 @@ class EditChar extends React.Component {
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Header><NumField name='charisma' decimal={false} /></Card.Header>
+                                      <Card.Header><AutoField name='constitution' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
                                 </Grid.Column>
                                 <Grid.Column>
                                   <Card>
                                     <Card.Content>
-                                      <Card.Header><NumField name='wisdom' decimal={false} /></Card.Header>
+                                      <Card.Header><AutoField name='intelligence' decimal={false} /></Card.Header>
+                                    </Card.Content>
+                                  </Card>
+                                </Grid.Column>
+                              </Grid.Row>
+                              <Grid.Row columns={2}>
+                                <Grid.Column>
+                                  <Card>
+                                    <Card.Content>
+                                      <Card.Header><AutoField name='charisma' decimal={false} /></Card.Header>
+                                    </Card.Content>
+                                  </Card>
+                                </Grid.Column>
+                                <Grid.Column>
+                                  <Card>
+                                    <Card.Content>
+                                      <Card.Header><AutoField name='wisdom' decimal={false} /></Card.Header>
                                     </Card.Content>
                                   </Card>
                                 </Grid.Column>
@@ -111,24 +111,24 @@ class EditChar extends React.Component {
                             </Grid>
                             <Card>
                               <Card.Content>
-                                <Card.Header><TextField name='mainhand'/></Card.Header>
+                                <Card.Header><AutoField name='mainhand' /></Card.Header>
                               </Card.Content>
                             </Card>
                             <Card>
                               <Card.Content>
-                                <Card.Header><TextField name='offhand'/></Card.Header>
+                                <Card.Header><AutoField name='offhand' /></Card.Header>
                               </Card.Content>
                             </Card>
                             <Card>
                               <Card.Content>
-                                <Card.Description><TextField name='notes' decimal={false} /></Card.Description>
+                                <Card.Description><AutoField name='notes' /></Card.Description>
                               </Card.Content>
                             </Card>
                           </Grid.Column>
                           <Grid.Column width={10}>
                             <Card fluid>
                               <Card.Content>
-                                <Card.Header textAlign='center'><TextField name='name' /></Card.Header>
+                                <Card.Header textAlign='center'><AutoField name='name' /></Card.Header>
                               </Card.Content>
                             </Card>
                             <Segment>
@@ -138,7 +138,7 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card centered>
                                       <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='head' /></Card.Header>
+                                        <Card.Header textAlign='center'><AutoField name='head' /></Card.Header>
                                       </Card.Content>
                                     </Card>
                                   </Grid.Column>
@@ -147,30 +147,14 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='neck' /></Card.Header>
+                                        <Card.Header textAlign='center'><AutoField name='neck' /></Card.Header>
                                       </Card.Content>
                                     </Card>
                                   </Grid.Column>
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='back' /></Card.Header>
-                                      </Card.Content>
-                                    </Card>
-                                  </Grid.Column>
-                                </Grid.Row>
-                                <Grid.Row columns={2}>
-                                  <Grid.Column>
-                                    <Card>
-                                      <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='arms' /></Card.Header>
-                                      </Card.Content>
-                                    </Card>
-                                  </Grid.Column>
-                                  <Grid.Column>
-                                    <Card>
-                                      <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='chest' /></Card.Header>
+                                        <Card.Header textAlign='center'><AutoField name='back' /></Card.Header>
                                       </Card.Content>
                                     </Card>
                                   </Grid.Column>
@@ -179,14 +163,14 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='hands' /></Card.Header>
+                                        <Card.Header textAlign='center'><AutoField name='arms' /></Card.Header>
                                       </Card.Content>
                                     </Card>
                                   </Grid.Column>
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='belt' /></Card.Header>
+                                        <Card.Header textAlign='center'><AutoField name='chest' /></Card.Header>
                                       </Card.Content>
                                     </Card>
                                   </Grid.Column>
@@ -195,14 +179,30 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='ring1' /></Card.Header>
+                                        <Card.Header textAlign='center'><AutoField name='hands' /></Card.Header>
                                       </Card.Content>
                                     </Card>
                                   </Grid.Column>
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Header textAlign='center'><TextField name='ring2' /></Card.Header>
+                                        <Card.Header textAlign='center'><AutoField name='belt' /></Card.Header>
+                                      </Card.Content>
+                                    </Card>
+                                  </Grid.Column>
+                                </Grid.Row>
+                                <Grid.Row columns={2}>
+                                  <Grid.Column>
+                                    <Card>
+                                      <Card.Content>
+                                        <Card.Header textAlign='center'><AutoField name='ring1' v/></Card.Header>
+                                      </Card.Content>
+                                    </Card>
+                                  </Grid.Column>
+                                  <Grid.Column>
+                                    <Card>
+                                      <Card.Content>
+                                        <Card.Header textAlign='center'><AutoField name='ring2' /></Card.Header>
                                       </Card.Content>
                                     </Card>
                                   </Grid.Column>
@@ -217,7 +217,7 @@ class EditChar extends React.Component {
                 </Container>
               </div>
             </Segment>
-            <HiddenField name='owner' value={Meteor.user().username} />
+            <AutoField name='owner' />
             <ErrorsField/>
             <SubmitField value='Submit'/>
           </AutoForm>
@@ -229,7 +229,7 @@ class EditChar extends React.Component {
 
 // Require the presence of a Character document in the props object. Uniforms adds 'model' to the props, which we use.
 EditChar.propTypes = {
-  character: PropTypes.object.isRequired,
+  doc: PropTypes.object.isRequired,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
@@ -240,9 +240,8 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Character documents.
   const subscription = Meteor.subscribe(Characters.userPublicationName);
-
   return {
-    character: Characters.collection.findOne(documentId), // Get the document
+    doc: Characters.collection.findOne(documentId), // Get the document
     ready: subscription.ready(),
   };
 })(EditChar);
