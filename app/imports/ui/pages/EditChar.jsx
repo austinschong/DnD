@@ -119,11 +119,6 @@ class EditChar extends React.Component {
                                 <Card.Header><AutoField name='offhand' /></Card.Header>
                               </Card.Content>
                             </Card>
-                            <Card>
-                              <Card.Content>
-                                <Card.Description><AutoField name='notes' /></Card.Description>
-                              </Card.Content>
-                            </Card>
                           </Grid.Column>
                           <Grid.Column width={10}>
                             <Card fluid>
@@ -209,6 +204,11 @@ class EditChar extends React.Component {
                                 </Grid.Row>
                               </Grid>
                             </Segment>
+                            <Card fluid>
+                              <Card.Content>
+                                <Card.Description><AutoField name='notes' /></Card.Description>
+                              </Card.Content>
+                            </Card>
                           </Grid.Column>
                         </Grid>
                       </Grid.Column>
