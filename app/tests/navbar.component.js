@@ -2,6 +2,10 @@ import { Selector } from 'testcafe';
 
 class NavBar {
 
+  async homePage(testController) {
+    await testController.click('#homepage-button');
+  }
+
   /** If someone is logged in, then log them out, otherwise do nothing. */
   async ensureLogout(testController) {
     const loggedInUser = await Selector('#navbar-current-user').exists;
@@ -49,7 +53,7 @@ class NavBar {
 
   /** Click on view characters tab. */
   async gotoCharacterPage(testController) {
-    await testController.click('#chars');
+    await testController.click('#char-menu');
   }
 }
 

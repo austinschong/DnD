@@ -78,4 +78,9 @@ p {
   flex-wrap: wrap;
 
 }
-/* For landing page. */
+
+/* For cards */
+.card-icons {
+  width: auto;
+  height: 240px;
+}

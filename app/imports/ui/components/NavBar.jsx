@@ -12,17 +12,16 @@ class NavBar extends React.Component {
     const menuStyle = { marginBottom: '10px' };
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/">
+        <Menu.Item id='homepage-button' as={NavLink} activeClassName="" exact to="/">
           <Header inverted as='h1'>DnD Character Creation</Header>
         </Menu.Item>
         {this.props.currentUser ? (
           [<Menu.Item id="new-character-page" as={NavLink} activeClassName="active" exact to="/createchar" key='add'>Create A New Character</Menu.Item>,
             <Menu.Item id="edit-page" as={NavLink} activeClassName="active" exact to="/edit" key='list'>Edit An Existing Character</Menu.Item>,
-            <Menu.Item id="char-menu" as={NavLink} activeClassName="active" exact to="/charmenu" key='list'>Character Menu</Menu.Item>,
-            <Menu.Item id="char-page" as={NavLink} activeClassName="active" exact to="/charpage" key='list'>Characters</Menu.Item>]
+            <Menu.Item id="char-menu" as={NavLink} activeClassName="active" exact to="/charmenu" key='list'>Character Menu</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/charadmin" key='admin'>Admin</Menu.Item>
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
