@@ -110,6 +110,7 @@ Lucy Rock:
 <li>Landing Page</li>
 <li>Add Character Page (Still working on it)</li>
 <li>Edit Character Page (Refining the Page)</li>
+</ul>
 <h3>DATED: 27 June, 2021</h3>
 <h3>NEW Completed Sections:</h3>
 <li>Add Character Page (add within a dropdown menu for editing/viewing characters)</li>
