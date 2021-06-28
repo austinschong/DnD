@@ -27,7 +27,7 @@ class Landing extends React.Component {
                     <Header className='landingPage' textAlign='center' as={'h1'}>
                         Create up your character now!
                       <Divider hidden/>
-                      <Button className='whtBtn' id='signup-button' as={Link} to="/signin" animated size="large">
+                      <Button className='whtBtn' id='signup-button' as={Link} to="/signup" animated size="large">
                         <Button.Content visible>Sign-Up!</Button.Content>
                         <Button.Content hidden>
                           <Icon className='iWht' name='arrow right'/>
@@ -80,7 +80,7 @@ class Landing extends React.Component {
           <Image src='/images/Mim.png' size='medium' centered/>
           <Container className='landing_bottom_image'>
             <Segment basic floated='right' compact textAlign='center'>
-              <Button className='whtBtn' as={Link} to="/signin" animated size="large">
+              <Button className='whtBtn' as={Link} to="/signup" animated size="large">
                 <Button.Content visible>Join Now</Button.Content>
                 <Button.Content hidden>
                   <Icon name='arrow right'/>
