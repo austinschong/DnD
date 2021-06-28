@@ -16,7 +16,8 @@ class AddChar extends React.Component {
   submit(data, formRef) {
     const { image, race, level, charclass, subclass, strength, dexterity, constitution,
       intelligence, charisma, wisdom, mainhand, offhand, notes, name, head, neck, back, arms, chest, hands, belt, ring1,
-      ring2, owner } = data;
+      ring2 } = data;
+    const owner = Meteor.user().username;
     Characters.collection.insert({ image, race, level, charclass, subclass, strength, dexterity, constitution,
       intelligence, charisma, wisdom, mainhand, offhand, notes, name, head, neck, back, arms, chest, hands, belt, ring1,
       ring2, owner }, (error) => {
@@ -29,19 +30,14 @@ class AddChar extends React.Component {
     });
   }
 
-  // If the subscription(s) have been received, render the page, otherwise show a loading icon.
-  render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-  }
-
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
-  renderPage() {
-    console.log(this.props.character);
+  render() {
+    let fRef = null;
     return (
       <Grid id='edit-character-page' container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Create Character</Header>
-          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.character}>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <div className="Character Sheet">
                 <Container>
@@ -221,7 +217,7 @@ class AddChar extends React.Component {
                 </Container>
               </div>
             </Segment>
-            <HiddenField name='owner' value={Meteor.user().username} />
+            <HiddenField name='owner' />
             <ErrorsField/>
             <SubmitField value='Submit'/>
           </AutoForm>
