@@ -1,6 +1,7 @@
 import React from 'react';
-import { Accordion, Card, Image, Icon, List } from 'semantic-ui-react';
+import { Accordion, Card, Image, Icon, List, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 // import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -64,6 +65,12 @@ class DescriptionCardsAdmin extends React.Component {
         </Card.Content>
         <Card.Content extra>
           <Card.Meta>Owner: {CharacterInfo.owner}</Card.Meta>
+          <Button>
+            <Link to={`/charpageadmin/${CharacterInfo._id}`}>View</Link>
+          </Button>
+          <Button>
+            <Link to={`/editadmin/${CharacterInfo._id}`}>Edit</Link>
+          </Button>
         </Card.Content>
       </Card>
     );

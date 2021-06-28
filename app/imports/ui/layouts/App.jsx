@@ -13,9 +13,10 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import CharacterPage from '../pages/CharacterPage';
 import CharacterMenu from '../pages/CharacterMenu';
 import CharacterMenuAdmin from '../pages/CharacterMenuAdmin';
-import CharacterPage from '../pages/CharacterPage';
+import EditCharAdmin from '../pages/EditCharAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
             <ProtectedRoute path="/charmenu" component={CharacterMenu}/>
             <ProtectedRoute path="/charpage/:_id" component={CharacterPage}/>
             <AdminProtectedRoute path="/charadmin" component={CharacterMenuAdmin}/>
+            <AdminProtectedRoute path="/editadmin/:_id" component={EditCharAdmin}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
