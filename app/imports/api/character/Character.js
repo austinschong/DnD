@@ -53,6 +53,115 @@ class CharactersCollection {
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
+
+  define({ name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
+    charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes }) {
+    const docID = this._collection.insert({
+      name,
+      image,
+      race,
+      level,
+      charclass,
+      subclass,
+      strength,
+      dexterity,
+      constitution,
+      intelligence,
+      charisma,
+      wisdom,
+      head,
+      neck,
+      back,
+      arms,
+      chest,
+      hands,
+      belt,
+      ring1,
+      ring2,
+      mainhand,
+      offhand,
+      notes,
+    });
+    return docID;
+  }
+
+  update(docID, { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
+    charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes }) {
+    const updateData = {};
+    if (name) {
+      updateData.name = name;
+    }
+    if (image) {
+      updateData.image = image;
+    }
+    if (race) {
+      updateData.race = race;
+    }
+    if (level) {
+      updateData.level = level;
+    }
+    if (charclass) {
+      updateData.charclass = charclass;
+    }
+    if (subclass) {
+      updateData.subclass = subclass;
+    }
+    if (strength) {
+      updateData.strength = strength;
+    }
+    if (dexterity) {
+      updateData.dexterity = dexterity;
+    }
+    if (constitution) {
+      updateData.constitution = constitution;
+    }
+    if (intelligence) {
+      updateData.intelligence = intelligence;
+    }
+    if (charisma) {
+      updateData.charisma = charisma;
+    }
+    if (wisdom) {
+      updateData.wisdom = wisdom;
+    }
+    if (head) {
+      updateData.head = head;
+    }
+    if (back) {
+      updateData.back = back;
+    }
+    if (neck) {
+      updateData.neck = neck;
+    }
+    if (arms) {
+      updateData.arms = arms;
+    }
+    if (chest) {
+      updateData.chest = chest;
+    }
+    if (hands) {
+      updateData.hands = hands;
+    }
+    if (belt) {
+      updateData.belt = belt;
+    }
+    if (ring1) {
+      updateData.ring1 = ring1;
+    }
+    if (ring2) {
+      updateData.ring2 = ring2;
+    }
+    if (mainhand) {
+      updateData.mainhand = mainhand;
+    }
+    if (offhand) {
+      updateData.offhand = offhand;
+    }
+    if (notes) {
+      updateData.notes = notes;
+    }
+    this._collection.update(docID, { $set: updateData });
+  }
 }
 
 /**

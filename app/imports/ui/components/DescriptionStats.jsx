@@ -13,7 +13,6 @@ class DescriptionStats extends React.Component {
           <Segment>
             <Grid celled='internally'>
               <Grid.Column width={5}>
-                <Segment>DICE ROLL FUNCTION</Segment>
                 <Card fluid>
                   <Image large src={CharStatsInfo.image} alt='Mim' wrapped ui={false}/>
                 </Card>

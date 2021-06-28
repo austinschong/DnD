@@ -38,13 +38,6 @@ p {
   background-color: #1a2626;
 }
 
-.grid-row {
-  margin-right: 30em;
-  margin-left: 30em;
-  min-width: 600px;
-  max-width: 600px;
-}
-
 .main-content {
   padding: 2rem 0 !important;
 }
