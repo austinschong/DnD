@@ -17,7 +17,7 @@ class AddChar extends React.Component {
   submit(data) {
     const { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
       charisma, wisdom, head, neck, back, arms, chest, hands, belt, ring1, ring2, mainhand, offhand, notes, owner, _id } = data;
-    Characters.collection.update(_id, { $set: { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
+    Characters.collection.insert(_id, { $set: { name, image, race, level, charclass, subclass, strength, dexterity, constitution, intelligence,
       charisma, wisdom, head, neck, back, arms, chest, hands,
       belt, ring1, ring2, mainhand, offhand, notes, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
