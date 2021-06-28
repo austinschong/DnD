@@ -42,13 +42,13 @@ class EditChar extends React.Component {
                 <Container>
                   <Segment>
                     <Grid celled='internally'>
-                      <Grid.Column width={5}>
+                      <Grid.Column width={4}>
                         <Segment>DICE ROLL FUNCTION</Segment>
                         <Card fluid>
                           <AutoField name='image' />
                         </Card>
                       </Grid.Column>
-                      <Grid.Column width={11}>
+                      <Grid.Column width={12}>
                         <Grid>
                           <Grid.Column width={6}>
                             <Card>
@@ -195,7 +195,7 @@ class EditChar extends React.Component {
                                   <Grid.Column>
                                     <Card>
                                       <Card.Content>
-                                        <Card.Header textAlign='center'><AutoField name='ring1' v/></Card.Header>
+                                        <Card.Header textAlign='center'><AutoField name='ring1' /></Card.Header>
                                       </Card.Content>
                                     </Card>
                                   </Grid.Column>
@@ -240,8 +240,12 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Character documents.
   const subscription = Meteor.subscribe(Characters.userPublicationName);
+  // Get the document
+  const doc = Characters.collection.findOne(documentId);
+  const ready = subscription.ready();
+  console.log(doc);
   return {
-    doc: Characters.collection.findOne(documentId), // Get the document
-    ready: subscription.ready(),
+    doc,
+    ready,
   };
 })(EditChar);
